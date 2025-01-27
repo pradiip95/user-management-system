@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+  <div class="container mt-5">
+		<h1 class="text-center text-danger">Delete Account</h1>
+		<p class="text-center text-muted">Please confirm your password to delete your account.</p>
+
+		<!-- Flash Messages -->
+		<div class="alert alert-danger" th:if="${error}" th:text="${error}"></div>
+
+		<form th:action="@{/user/confirm-delete}" method="post">
+			<div class="mb-3">
+				<label for="password" class="form-label">Password</label>
+				<input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+			</div>
+			<button type="submit" class="btn btn-danger">Confirm Delete</button>
+			<a href="/user/" class="btn btn-secondary">Cancel</a>
+		</form>
+	</div>
+</section>
+</body>
+</html>
